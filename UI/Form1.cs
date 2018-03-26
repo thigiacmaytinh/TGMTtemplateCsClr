@@ -16,6 +16,7 @@ namespace UI
 {
     public partial class Form1 : Form
     {
+        string m_filePath;
 
         public Form1()
         {
@@ -29,41 +30,29 @@ namespace UI
             this.KeyPreview = true;
         }
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
-        {
-        }
-
-        
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image file|*.jpg;*.png;*.bmp";
+            ofd.ShowDialog();
+            m_filePath = ofd.FileName;
 
-        }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            
+            pictureBox1.ImageLocation = m_filePath;
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void btnCount_Click(object sender, EventArgs e)
+        private void btnDetect_Click(object sender, EventArgs e)
         {
+            CbridgeSample.DetectStar(m_filePath);
 
+
+            pictureBox2.Image = CbridgeSample.GetImage();
+
+            lblResult.Text = CbridgeSample.GetTotalStar() + " / " + CbridgeSample.GetTotalContour();
         }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            
-        }
-
     }
 }

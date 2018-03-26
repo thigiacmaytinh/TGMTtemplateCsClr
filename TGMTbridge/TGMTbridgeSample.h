@@ -9,7 +9,11 @@ namespace TGMTbridge
 
 	public ref class CbridgeSample
 	{
+		
 	public:
-		static bool Test();
+		static bool DetectStar(String^ filePath);
+		static Bitmap^ GetImage();
+		static int GetTotalStar();
+		static int GetTotalContour();
 	};
 }
