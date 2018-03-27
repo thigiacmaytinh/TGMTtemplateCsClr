@@ -5,3 +5,7 @@
 *.pdb
 /TGMTtemplate/obj/x64/Debug/TGMTtemplate.tlog/*.tlog
 *.tlog
+/TGMTbridge/Debug
+/TGMTbridge/Release
+/TGMTbridge/x64
+/UI/obj
