@@ -39,7 +39,7 @@ bool Example::DetectStar(std::string filePath)
 
 	cv::threshold(imgrey, imgrey, 200, 255, 0);
 
-	cv::findContours(imgrey, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
+	cv::findContours(imgrey, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
 	m_totalContour = contours.size();
 	for (int i = 0; i < m_totalContour; i++)
