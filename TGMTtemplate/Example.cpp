@@ -39,16 +39,17 @@ bool Example::DetectStar(std::string filePath)
 
 	cv::threshold(imgrey, imgrey, 200, 255, 0);
 
-	cv::findContours(imgrey, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
+	cv::findContours(imgrey, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE, cv::Point(0, 0));
 
 	m_totalContour = contours.size();
 	for (int i = 0; i < m_totalContour; i++)
 	{
-		
-		std::cout << "sqrt(Area)/arcLength = " << sqrt(cv::contourArea(contours[i])) / cv::arcLength(contours[i], true) << std::endl;
-		if (sqrt(cv::contourArea(contours[i])) / cv::arcLength(contours[i], true) < divMaxSize && sqrt(cv::contourArea(contours[i])) / arcLength(contours[i], true) > divMinSize)
+		std::vector<cv::Point> contour = contours[i];
+
+		std::cout << "sqrt(Area)/arcLength = " << sqrt(cv::contourArea(contour)) / cv::arcLength(contour, true) << std::endl;
+		if (sqrt(cv::contourArea(contour)) / cv::arcLength(contour, true) < divMaxSize && sqrt(cv::contourArea(contour)) / arcLength(contour, true) > divMinSize)
 		{
-			cv::drawContours(im, contours, i, RED, 1, 8, hierarchy, 0, cv::Point());
+			cv::drawContours(im, contours, i, RED, 1, 4);
 			m_totalStar++;
 		}
 #ifdef _DEBUG
