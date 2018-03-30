@@ -11,9 +11,6 @@ namespace TGMTbridge
 	{
 		
 	public:
-		static bool DetectStar(String^ filePath);
-		static Bitmap^ GetImage();
-		static int GetTotalStar();
-		static int GetTotalContour();
+		static Bitmap^ LoadImage(String^ filePath);
 	};
 }

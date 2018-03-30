@@ -58,10 +58,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TGMTcrypto.cs" />
-    <Compile Include="TGMThardware.cs" />
     <Compile Include="TGMTimage.cs" />
-    <Compile Include="TGMTonline.cs" />
     <Compile Include="TGMTutil.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

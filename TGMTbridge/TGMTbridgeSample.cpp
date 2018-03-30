@@ -4,35 +4,13 @@
 #include "Example.h"
 #include "TGMTbridge.h"
 
+using namespace TGMT;
 using namespace TGMTbridge;
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-bool CbridgeSample::DetectStar(String^ filePath)
+Bitmap^ CbridgeSample::LoadImage(String^ filePath)
 {
-	std::string path = TGMT::TGMTbridge::SystemStr2stdStr(filePath);
-	return Example::GetInstance()->DetectStar(path);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Bitmap^ CbridgeSample::GetImage()
-{
-	cv::Mat mat = Example::GetInstance()->GetImage();
-	return TGMT::TGMTbridge::MatToBitmap(mat);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-int CbridgeSample::GetTotalStar()
-{
-	return Example::GetInstance()->GetTotalStar();
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-int CbridgeSample::GetTotalContour()
-{
-	return Example::GetInstance()->GetTotalContour();
+	std::string str = TGMT::TGMTbridge::SystemStr2stdStr(filePath);
+	return TGMT::TGMTbridge::MatToBitmap(Example::LoadImage(str));
 }

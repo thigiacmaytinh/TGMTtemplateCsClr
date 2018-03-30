@@ -16,7 +16,7 @@ namespace UI
 {
     public partial class Form1 : Form
     {
-        string m_filePath;
+        
 
         public Form1()
         {
@@ -38,21 +38,13 @@ namespace UI
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.jpg;*.png;*.bmp";
             ofd.ShowDialog();
-            m_filePath = ofd.FileName;
-
-            pictureBox1.ImageLocation = m_filePath;
-        }
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        private void btnDetect_Click(object sender, EventArgs e)
-        {
-            CbridgeSample.DetectStar(m_filePath);
 
 
-            pictureBox2.Image = CbridgeSample.GetImage();
+            string filePath = ofd.FileName;
+            pictureBox1.ImageLocation = filePath;
 
-            lblResult.Text = CbridgeSample.GetTotalStar() + " / " + CbridgeSample.GetTotalContour();
+            pictureBox2.Image = CbridgeSample.LoadImage(filePath);
+
         }
     }
 }
